@@ -21,9 +21,10 @@ import com.google.android.gms.maps.model.LatLng;
  * A simple {@link Fragment} subclass.
  */
 public class MMFragment extends Fragment implements OnMapReadyCallback {
+    
+    Button bMaps, bSat, bHy;
     GoogleMap m_map;
     Boolean mapReady = false;
-    Button bMaps, bSat, bHy;
 
     public MMFragment() {
         // Required empty public constructor
@@ -31,8 +32,7 @@ public class MMFragment extends Fragment implements OnMapReadyCallback {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mm, container, false);
         bMaps = view.findViewById(R.id.btnMap);
@@ -47,19 +47,19 @@ public class MMFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
-        bSat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mapReady)
-                    m_map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-            }
-        });
-
         bHy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mapReady)
                     m_map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            }
+        });
+        
+        bSat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mapReady)
+                    m_map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
             }
         });
 
